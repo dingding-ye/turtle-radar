@@ -43,7 +43,7 @@ From the diagram from the HC-SR04 below, we can see that the ECHO pulse output h
 We can then use a second timer (Timer A1) counting in continuous Up Mode in capture mode but triggering an interrupt on both the rising and falling edges of the ECHO signal. Then, storing both the rising and falling edges in a temporary variable, we are able to calculate the difference between the two and use the datasheet-provided equation of distance (in cm) $= uS / 58$ to find the current distance of the turtle from the sensor.
 
 From there, speed can be calculated through the classic equation of change in distance over change in time.
-$$speed = \frac{|distance_1 - distance_2|}{\text{elapsed time}}$$
+$$speed = \frac{|distance_1 - distance_2|}{\delta time}$$
 
 For every loop (with an adjustable duration, I have found that ~0.75 seconds is ideal), the current distance is recorded, the distance and speed performed, and the current distance is shifted to be the last distance for the next calculation. 
 
