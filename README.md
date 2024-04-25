@@ -16,12 +16,7 @@ Materials:
 ### Hypersonic Sensor (HC-SR04)
 The first subsystem involves taking an external signal as input and performing speed and distance calculations from that signal. I chose a hypersonic sensor that uses the Doppler shift to calculate these data values. Much like the Doppler-shift Compensation behavior that bats exhibit for echolocation, the hypersonic sensor emits a sonic burst of 8 pulses of a few microseconds and waits for an "echo" to determine distance traveled, and from there the speed of the object.
 
-I chose the [HC-SR04 module](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf) for its ease of use and its relatively low price point. It has four pins, of which I connected VCC to 5V, GND to GND, TRIGGER to P2.6, and ECHO to P2.1 on the MSP430. 
-
-hypersonic sensor
-- explain doppler effect (link)
-- chose part for its price point, datasheet included in coresponding folder
-- 4 pins, which on microcontroller connected (ECHO connected to P2. through a voltage divider (described in detail below)
+I chose the [HC-SR04 module](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf) for its ease of use and its relatively low price point. It has four pins, of which I connected VCC to 5V, GND to GND, TRIGGER to P2.6, and ECHO to P2.1 through a voltage divider (described in detail below) to the MSP430. 
 
 > [!WARNING]
 > Different voltage levels used!
@@ -35,7 +30,7 @@ $$3.3V = \frac{R_1 + R_2}{R_1+R_2+R_3} * 5V \text{, for } R_1 = R_2 = R_3 = 330\
 If you only have certain resistor values on hand, any equivalent voltage divider will work as well.
 
 ### 7-Segment LED Display
-For displaying the speed as an output, I chose to use a 7-segment display for clear and clean conveying of data. 
+For displaying the speed as an output, I chose to use a 7-segment display for clear and clean conveying of data. The parts are from UXCell and are a set of common cathode 7-segment displays. I wired up one of the displays to pins P1.0 to P1.6 of the MSP430 (one pin for each segment of the display for separate control of each).
 
 
 Originally, the speed was shown in miles per hour like many radar signs for Houston traffic, but as I could not get the turtles to go much faster than 1 mph (if even that), I changed my units to cm/s (the metric dark side) for a wider range of representation of speeds.
