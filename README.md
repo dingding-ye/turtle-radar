@@ -45,7 +45,7 @@ We can then use a second timer (Timer A1) counting in continuous Up Mode in capt
 From there, speed can be calculated through the classic equation of change in distance over change in time.
 $$speed = \frac{|distance_1 - distance_2|}{\Delta time}$$
 
-For every loop (with an adjustable duration, I have found that ~0.75 seconds is ideal), the current distance is recorded, the distance and speed performed, and the current distance is shifted to be the last distance for the next calculation. 
+For every loop (with an adjustable duration, I have found that ~0.75 seconds is ideal), the current distance is recorded, the distance and speed calculations performed based on current values, and the current distance is shifted to be the last distance for the next calculation. 
 
 ### 7-Segment LED Display
 For displaying the speed as an output, I chose to use a 7-segment display for clear and clean conveying of data. The parts are from UXCell and are a set of common cathode 7-segment displays. I wired up one of the displays to pins P1.0 to P1.6 of the MSP430 (one pin for each segment of the display for separate control of each).
