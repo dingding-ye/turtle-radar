@@ -1,12 +1,9 @@
-# turtle-radar
+# turtle-racing
 Radar sign built for Thursday night turtle racing 
 
 Every Thursday, rain or shine, the turtles race at Little Woodrows in Midtown Houston. Ten turtles, one victory. The crowd cheer them on as they race to the black and white checkered flags. However, there is one issue for the spectators: since the turtles are so small and also positioned far away from the crowd, how do they know which turtle should they vote on? How will they know who will win? 
 
 This project will solve this critical issue. If each turtle’s speed was clearly displayed to the surrounding crowd, they would be able to make an educated vote for their favored winner. This would be achieved through a radar sign using ultrasonic sensors to “read” the speed from a distance along with with a visual component of a seven-segment display for showing the speed to the spectators. Each of the segments would have a communication protocol to each digit be controlled by a shift register which is then wired to the speed monitoring and measuring system.
-
-intro/catch: 
-- turtle project pitch explanation
 
 Materials:
 - MSP4302553 Microcontroller (1)
