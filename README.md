@@ -29,21 +29,27 @@ $$3.3V = \frac{R_1 + R_2}{R_1+R_2+R_3} * 5V \text{, for } R_1 = R_2 = R_3 = 330\
 
 If you only have certain resistor values on hand, any equivalent voltage divider will work as well.
 
-### Timers and Interrupts
+### PWM and Timers
 The TRIGGER input signal is described by the HC-SR04 datasheet as needing to supply an input pulse with a width of 10 microseconds to determine when to start the ranging. The datasheet also recommends a period of the signal between pulses of at least 60 milliseconds. 
 
 In order to generate this signal to the TRIGGER pin, I used Timer A0. Setting the timer interrupt to Up Count mode (where the interrupt trigger) and to use the SMCLK at a frequency of 1MHz, I enabled Output mode 7 (reset/set) to be able to use PWM with the CCR0 and CCR1 registers. Then, the CCR1 register can be set to the 10 microsecond pulse while still staying within the minimum period limit defined by the datasheet. 
 
-
-### Distance and Speed Calculations
-From the diagram from the HC-SR04 below, we can see that ECHO 
+### Interrupts and (More) Timers, (also Distance and Speed Calculations)
+From the diagram from the HC-SR04 below, we can see that the ECHO pulse output has a certain width in microseconds.
 ![image](https://github.com/dingding-ye/turtle-radar/assets/94885006/e54606bb-1edf-4355-be12-1866123c17b7)
+
+We can then use a second timer (Timer A1) counting in continuous Up Mode in capture mode but triggering an interrupt on both the rising and falling edges of 
+Then, storing both the 
+and using the datasheet-provided equation of $distance (in cm) = uS / 58$
+Timer 
 
 
 ### 7-Segment LED Display
 For displaying the speed as an output, I chose to use a 7-segment display for clear and clean conveying of data. The parts are from UXCell and are a set of common cathode 7-segment displays. I wired up one of the displays to pins P1.0 to P1.6 of the MSP430 (one pin for each segment of the display for separate control of each).
 
 Originally, the speed was shown in miles per hour like many radar signs for Houston traffic, but as I could not get the turtles to go much faster than 1 mph (if even that), I changed my units to cm/s (the metric dark side) for a wider range of representation of speeds.
+
+In addition, according to the HC-SR04 datasheet, the sensors have a range of 2cm to 4m. Therefore, I have the 7-segment display displaying a default value of 3 horizontal lines for when an object is out of range (too close or too far) or moving too fast (turtles don't usually move faster than 10 cm/s).
 
 
 ### Serial Comms (UART)
