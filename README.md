@@ -1,4 +1,4 @@
-# turtle-racing
+# turtle-radar
 Radar sign built for Thursday night turtle racing 
 
 Every Thursday, rain or shine, the turtles race at Little Woodrows in Midtown Houston. Ten turtles, one victory. The crowd cheer them on as they race to the black and white checkered flags. However, there is one issue for the spectators: since the turtles are so small and also positioned far away from the crowd, how do they know which turtle should they vote on? How will they know who will win? 
@@ -42,12 +42,13 @@ From the diagram from the HC-SR04 below, we can see that the ECHO pulse output h
 We can then use a second timer (Timer A1) counting in continuous Up Mode in capture mode but triggering an interrupt on both the rising and falling edges of 
 Then, storing both the rising and falling edges in a temporary variable, we are able to calculate the difference and use the datasheet-provided equation of distance (in cm) $= uS / 58$ to find the current distance of the turtle from the sensor.
 
-
+From there, speed can be calculated through the classic equation of change in distance over change in time.
+$$distance = \frac{\abs{distance_1 - distance_2}}{\text{elapsed time}}$$
 
 ### 7-Segment LED Display
 For displaying the speed as an output, I chose to use a 7-segment display for clear and clean conveying of data. The parts are from UXCell and are a set of common cathode 7-segment displays. I wired up one of the displays to pins P1.0 to P1.6 of the MSP430 (one pin for each segment of the display for separate control of each).
 
-Originally, the speed was shown in miles per hour like many radar signs for Houston traffic, but as I could not get the turtles to go much faster than 1 mph (if even that), I changed my units to cm/s (the metric dark side) for a wider range of representation of speeds.
+Originally, the speed was shown in miles per hour like many radar signs for Houston traffic, but as I could not get the turtles to go much faster than 1 mph (~~if even that~~), I changed my units to cm/s (the metric dark side) for a wider range of representation of speeds.
 
 In addition, according to the HC-SR04 datasheet, the sensors have a range of 2cm to 4m. Therefore, I have the 7-segment display displaying a default value of 3 horizontal lines for when an object is out of range (too close or too far) or moving too fast (turtles don't usually move faster than 10 cm/s).
 
@@ -59,6 +60,7 @@ Thus, I selected the alternate functions of P1.1 and P1.2 to be able to do so an
 On paper, this seemed relatively simple, but I ended up running into some issues with the *ltoa* function and displaying decimal values. I then added extra code, including conditions of printing depending on the value of the decimal part of the distance, to resolve these issues.
 
 Finally, I was able to display the distance to the turtle and the speed of the turtle on the terminal to confirm consistent display values with the 7-segment display as well as provide capability for some very necessary debugging.
+
 **include terminal picture**
 
 ## Results & System Diagram
