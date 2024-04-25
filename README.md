@@ -40,7 +40,7 @@ From the diagram from the HC-SR04 below, we can see that the ECHO pulse output h
 ![image](https://github.com/dingding-ye/turtle-radar/assets/94885006/e54606bb-1edf-4355-be12-1866123c17b7)
 
 We can then use a second timer (Timer A1) counting in continuous Up Mode in capture mode but triggering an interrupt on both the rising and falling edges of 
-Then, storing both the rising and falling edges in a temporary variable, we are able to calculate the difference and use the datasheet-provided equation of $distance (in cm) = uS / 58$ to find the current distance of the turtle from the sensor.
+Then, storing both the rising and falling edges in a temporary variable, we are able to calculate the difference and use the datasheet-provided equation of distance (in cm) $= uS / 58$ to find the current distance of the turtle from the sensor.
 
 
 
