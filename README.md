@@ -1,5 +1,9 @@
 # turtle-radar
-Turtle crossing speed calculating radar sign
+Radar sign built for Thursday night turtle racing 
+
+Every Thursday, rain or shine, the turtles race at Little Woodrows in Midtown Houston. Ten turtles, one victory. The crowd cheer them on as they race to the black and white checkered flags. However, there is one issue for the spectators: since the turtles are so small and also positioned far away from the crowd, how do they know which turtle should they vote on? How will they know who will win? 
+
+This project will solve this critical issue. If each turtle’s speed was clearly displayed to the surrounding crowd, they would be able to make an educated vote for their favored winner. This would be achieved through a radar sign using ultrasonic sensors to “read” the speed from a distance along with with a visual component of a seven-segment display for showing the speed to the spectators. Each of the segments would have a communication protocol to each digit be controlled by a shift register which is then wired to the speed monitoring and measuring system.
 
 intro/catch: 
 - turtle project pitch explanation
@@ -39,9 +43,8 @@ From the diagram from the HC-SR04 below, we can see that the ECHO pulse output h
 ![image](https://github.com/dingding-ye/turtle-radar/assets/94885006/e54606bb-1edf-4355-be12-1866123c17b7)
 
 We can then use a second timer (Timer A1) counting in continuous Up Mode in capture mode but triggering an interrupt on both the rising and falling edges of 
-Then, storing both the 
-and using the datasheet-provided equation of $distance (in cm) = uS / 58$
-Timer 
+Then, storing both the rising and falling edges in a temporary variable, we are able to calculate the difference and use the datasheet-provided equation of $distance (in cm) = uS / 58$ to find the current distance of the turtle from the sensor.
+
 
 
 ### 7-Segment LED Display
@@ -57,9 +60,10 @@ An aspect that I found very useful useful for debugging and for displaying value
 
 Thus, I selected the alternate functions of P1.1 and P1.2 to be able to do so and configured TX and RX pins in the necessary configurations to print values to terminal.
 On paper, this seemed relatively simple, but I ended up running into some issues with the *ltoa* function and displaying decimal values. I then added extra code, including conditions of printing depending on the value of the decimal part of the distance, to resolve these issues.
+
 Finally, I was able to display the distance to the turtle and the speed of the turtle on the terminal to confirm consistent display values with the 7-segment display as well as provide capability for some very necessary debugging.
 **include terminal picture**
 
-## Execution & Overall System
+## Results & System Diagram
 
-
+**make system diagram**
