@@ -4,12 +4,19 @@ Turtle crossing speed calculating radar sign
 intro/catch: 
 - turtle project pitch explanation
 
+Materials:
+- MSP4302553 Microcontroller (1)
+- HC-SR04 Ultra sonic sensor (1)
+- 7-segment display (1, but can use more for more digits displayed)
+- Resistors (2+)
+- Wires and breadboard (alternatively, can use printed board and soldering iron for more consolidated feel)
+
 ## Components & Subsystems
 
 ### Hypersonic Sensor (HC-SR04)
 The first subsystem involves taking an external signal as input and performing speed and distance calculations from that signal. I chose a hypersonic sensor that uses the Doppler shift to calculate these data values. Much like the Doppler-shift Compensation behavior that bats exhibit for echolocation, the hypersonic sensor emits a sonic burst of 8 pulses of a few microseconds and waits for an "echo" to determine distance traveled, and from there the speed of the object.
 
-I chose the [HC-SR04 module](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf) for its ease of use and its relatively low price point. 
+I chose the [HC-SR04 module](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf) for its ease of use and its relatively low price point. It has four pins, of which I connected VCC to 5V, GND to GND, TRIGGER to P2.6, and ECHO to P2.1 on the MSP430. 
 
 hypersonic sensor
 - explain doppler effect (link)
