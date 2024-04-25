@@ -67,4 +67,5 @@ Finally, I was able to display the distance to the turtle and the speed of the t
 
 ## Results & System Diagram
 
-**make system diagram**
+![System Diagram](https://github.com/dingding-ye/turtle-radar/assets/94885006/bfec6d72-b0b2-460c-96d9-6f698e9c22fc)
+
