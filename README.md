@@ -8,7 +8,7 @@ This project will solve this critical issue. If each turtle’s speed was clearl
 
 *Materials*:
 - MSP4302553 Microcontroller (1)
-- HC-SR04 Ultra sonic sensor (1)
+- HC-SR04 Ultrasonic sensor (1)
 - 7-segment display (1, but can use more for more digits displayed)
 - Resistors (2+)
 - Wires and breadboard (alternatively, can use printed board and soldering iron for more consolidated feel)
