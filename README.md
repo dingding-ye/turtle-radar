@@ -5,7 +5,7 @@ Every Thursday, rain or shine, the turtles race at Little Woodrows in Midtown Ho
 
 This project will solve this critical issue. If each turtle’s speed was clearly displayed to the surrounding crowd, they would be able to make an educated vote for their favored winner. This would be achieved through a radar sign using ultrasonic sensors to “read” the speed from a distance along with with a visual component of a seven-segment display for showing the speed to the spectators. Each of the segments would have a communication protocol to each digit be controlled by a shift register which is then wired to the speed monitoring and measuring system.
 
-Materials:
+*Materials*:
 - MSP4302553 Microcontroller (1)
 - HC-SR04 Ultra sonic sensor (1)
 - 7-segment display (1, but can use more for more digits displayed)
@@ -26,7 +26,7 @@ From the HC-SR04 datasheet, we can see that it operates at a 5V supply voltage, 
 As I only had 330Ω resistors, I created a three resistor voltage divider to translate down to 3.3V.
 
 $$3.3V = \frac{R_1 + R_2}{R_1+R_2+R_3} * 5V \text{, for } R_1 = R_2 = R_3 = 330\Omega$$
-![image](https://github.com/dingding-ye/turtle-radar/assets/94885006/d4da7f6e-c575-4cea-a43b-d0ad34b41ae1)
+![image](https://github.com/dingding-ye/turtle-radar/assets/94885006/eefc5b4a-2942-499d-967b-709e95f79e8c)
 
 If you only have certain resistor values on hand, any equivalent voltage divider will work as well.
 
