@@ -21,7 +21,7 @@ hypersonic sensor
 From the HC-SR04 datasheet, we can see that it operates at a 5V supply voltage, but feeds back to the microcontroller, which is operating at 3.3V, as the ECHO output signal. Thus, it is necessary to use a voltage divider to translate between these two voltage levels. 
 As I only had 330Ω resistors, I created a three resistor voltage divider 
 **insert equation**
-![voltage-divider-image](https://github.com/dingding-ye/turtle-radar/assets/94885006/69ea2e6c-c193-4cf3-bb11-3c4b6123b7e8)
+![voltage-divider-image](https://github.com/dingding-ye/turtle-radar/Images/94885006/69ea2e6c-c193-4cf3-bb11-3c4b6123b7e8)
 
 
 , but any equivalent voltage divider will work as well.
