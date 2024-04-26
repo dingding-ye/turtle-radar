@@ -63,7 +63,8 @@ On paper, this seemed relatively simple, but I ended up running into some issues
 
 Finally, I was able to display the distance to the turtle and the speed of the turtle on the terminal to confirm consistent display values with the 7-segment display as well as provide capability for some very necessary debugging.
 
-**include terminal picture**
+![image](https://github.com/dingding-ye/turtle-radar/assets/94885006/0c30355b-810e-4d5f-8ad8-a153e82bf955)
+
 
 ## Results & System Diagram
 
